@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar color fuente de elemento - JS Básico</title>
+    
+</head>
+<body>
+    <div>
+        <!-- Los elementos 'button' tienen un evento 'onClick' 
+        que ejecutará una funcion de JS al ser presionados por el usuario -->
+        <button onclick="cambiarColor('rojo')">Rojo</button>
+        <button onclick="cambiarColor('azul')">Azul</button>
+        <button onclick="cambiarColor('verde')">Verde</button>
+    </div>
+    <div id='caja' style="background-color: black; font-size: large; font-weight: bold; padding: 10px;color:white">
+        <p>Este es un texto de prueba</p>
+    </div>
+
+    <!-- Utilizamos la etiqueta 'script' para, por defecto, escribir código JS (JavaScript) -->
+    <script>
+    function cambiarColor(color) {
+        switch (color) {
+        case 'rojo':
+            document.getElementById('caja').style.color = 'red';
+            break;
+        case 'azul':
+            document.getElementById('caja').style.color = 'blue';
+            break;
+        case 'verde':
+            document.getElementById('caja').style.color = 'green';
+            break;
+    
+        default:
+            document.getElementById('caja').style.color = 'white';
+            break;
+        }
+    }
+    </script>
+</body>
+</html>
