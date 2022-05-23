@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular IVA - JS básico</title>
+</head>
+<body>
+<!-- 
+    En esta ocasión, permitiremos al usuario ingresar un precio neto de un producto.
+    Mediante JS, calcularemos el IVA y el precio final del producto
+-->
+
+    <!-- 
+        Para prevenir que la pagina se actualice 
+        o nos redirija a otra pagina al enviar el formulario, 
+        utilizaremos la linea de JS 'return false'.
+    -->
+    <form onsubmit="calcularIVA(); return false">
+        <input type="number" name="precioNeto" id="precioNeto" placeholder="Ingrese precio neto">
+        <input type="submit" value="Calcular">        
+    </form>
+    <div>
+        <h3>Precio Neto:</h3> <span id="precio"></span>
+        <h3>IVA:</h3> <span id="iva"></span>
+        <h3>Precio + IVA:</h3> <span id="precioIVA"></span>
+    </div>
+
+    <script>
+        function calcularIVA() {
+            // Utilizaremos la funcion 'getElementById' para buscar los elementos dentro de nuestro HTML.
+            // Usaremos una funcion de la libreria 'Math', llamada 'round' para redondear los valores.
+            // Finalmente, modificando la propiedad 'innerHTML', actualizaremos los valores correspondientes.
+            precioNeto = document.getElementById('precioNeto').value;
+            document.getElementById('precio').innerHTML = precioNeto
+            document.getElementById('iva').innerHTML = Math.round(precioNeto * 0.19)
+            document.getElementById('precioIVA').innerHTML = Math.round(precioNeto * 1.19)
+        }
+
+    </script>
+
+</body>
+</html>
