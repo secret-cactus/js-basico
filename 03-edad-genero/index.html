@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador por genero y edad - JS Básico</title>
+</head>
+<body>
+<!-- 
+    Ejemplo 3: Contador por genero y edad
+    A partir de la edad y genero de un usuario, utilizaremos 4 contadores
+    para calcular la cantidad de usuarios dentro de distintos rangos.
+-->
+
+    <form onsubmit="return false" style="border: 1px solid black; padding: 10px; border-radius: 8px;">
+        <h2>Formulario</h2>
+        <h3>Género</h3>
+        <input type="radio" name="genero" id="femenino" value="f">
+        <label for="femenino">Femenino</label>
+        <input type="radio" name="genero" id="masculino" value="m">
+        <label for="masculino">Masculino</label>
+
+        <h3>Edad</h3>
+        <input type="number" id="edad">
+        <input type="submit" value="Enviar">
+    </form>
+
+    <table>
+        <tr>
+            <th>Mujeres menores</th>
+            <th>Mujeres mayores</th>
+            <th>Hombres menores</th>
+            <th>Hombres mayores</th>
+        </tr>
+        <tr>
+            <td><input type="number" id="mujeresMenores" value="0" disabled></td>
+            <td><input type="number" id="mujeresMayores" value="0" disabled></td>
+            <td><input type="number" id="hombresMenores" value="0" disabled></td>
+            <td><input type="number" id="hombresMayores" value="0" disabled></td>
+        </tr>
+    </table>
+
+    <script>
+        function contarValores() {
+            // Primero, almacenamos los valores de los campos del formulario. 
+            // A partir de ahora, utilizaremos la funcion 'querySelector' para seleccionar
+            // los elementos de nuestro documento HTML. Esto nos permitirá realizar selecciones
+            // más especificas.
+            // Por ejemplo:
+            //      Aquí estamos buscando elementos 'input' cuyo nombre sea genero 
+            //      y tengan un estado 'checked' o 'seleccionado'
+            genero = document.querySelector('input[name="genero"]:checked').value
+            //      Aquí, seleccionamos todos los elementos cuyo atributo 'id' sea 'edad'
+            edad = document.querySelector('#edad').value
+
+        }
+    </script>
+
+
+</body>
+</html>
