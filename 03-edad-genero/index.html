@@ -12,7 +12,7 @@
     para calcular la cantidad de usuarios dentro de distintos rangos.
 -->
 
-    <form onsubmit="return false" style="border: 1px solid black; padding: 10px; border-radius: 8px;">
+    <form onsubmit="contarValores() ;return false" style="border: 1px solid black; padding: 10px; border-radius: 8px;">
         <h2>Formulario</h2>
         <h3>Género</h3>
         <input type="radio" name="genero" id="femenino" value="f">
@@ -51,8 +51,26 @@
             //      y tengan un estado 'checked' o 'seleccionado'
             genero = document.querySelector('input[name="genero"]:checked').value
             //      Aquí, seleccionamos todos los elementos cuyo atributo 'id' sea 'edad'
-            edad = document.querySelector('#edad').value
+            edad = parseInt(document.querySelector('#edad').value)
 
+            // Luego, guardamos los valores de nuestros contadores. Debemos convertir el valor
+            // a un valor entero, debido que por defecto, la propiedad 'value' de los elementos 'input'
+            // se almacenan como texto.
+            mujeresMenores = parseInt(document.querySelector('#mujeresMenores').value)
+            mujeresMayores = parseInt(document.querySelector('#mujeresMayores').value)
+            hombresMenores = parseInt(document.querySelector('#hombresMenores').value)
+            hombresMayores = parseInt(document.querySelector('#hombresMayores').value)
+
+            // Finalmente, mediante condicionales, sumamos uno a los correspondientes contadores.
+            if (genero === 'f' && edad < 18) {          // Si el genero seleccionado tiene un valor 'f' Y ADEMAS, su edad es menor a 18...
+                document.querySelector('#mujeresMenores').value = mujeresMenores + 1    // ...suma 1 al total del contador 'mujeresMenores'.
+            } else if (genero === 'f' && edad >= 18) {  // Si el genero seleccionado tiene un valor 'f' Y ADEMAS, su edad es mayor o igual a 18...
+                document.querySelector('#mujeresMayores').value = mujeresMayores + 1    // ...suma 1 al total del contador 'mujeresMayores'.
+            } else if (genero === 'm' && edad < 18) {   // Si el genero seleccionado tiene un valor 'm' Y ADEMAS, su edad es menor a 18..
+                document.querySelector('#hombresMenores').value = hombresMenores + 1    // ...suma 1 al total del contador 'hombresMenores'.
+            } else if (genero === 'm' && edad >= 18) {  // Si el genero seleccionado tiene un valor 'm' Y ADEMAS, su edad es mayor o igual a 18..
+                document.querySelector('#hombresMayores').value = hombresMayores + 1    // ...suma 1 al total del contador 'hombresMayores'.
+            }
         }
     </script>
 
